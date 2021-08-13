@@ -36,7 +36,7 @@ Before starting setting up your local instance, you need:
 Running `make install` sets up your instance. You should use this command only the first time you are setting
 up your local instance - for example after you've cloned this repo - or after manually uninstalling the instance.
 
-That's it. You don't need anything else. Your site should now run on [https://climate-group.ddev.site:44348](https://climate-group.ddev.site:44348)
+That's it. You don't need anything else. Your site should now run on [https://SITENAME.ddev.site:44348](https://SITENAME.ddev.site:44348)
 From now on just use `make up` for starting your docker containers.
 
 Now and then you may need to re-install Drupal (and only Drupal!). You can do this by running `make drupal-site-install`.
@@ -48,7 +48,7 @@ reading below.
 ## Pattern lab
 The pattern lab is used to facilitate the implementation of ATOMIC principles when building out the UI components and
 separate the UI components from the underlying patterns defined by Drupal (or any other system). The approach to the
-pattern library should be platform agnostic and assume that the pattern themselves may be used anywhere within the Climate Group's
+pattern library should be platform agnostic and assume that the pattern themselves may be used anywhere within the project's
 eco-system. To that end, pattern logic should be self-contained and not rely on any logic or assets that exist outside of
 the pattern lab.
 
@@ -227,12 +227,12 @@ environment. Check the [jenkins.pipeline](jenkins.pipeline) file to read the ste
 In order to deploy to Stage and Production environment, you need to deploy the code to be released
 manually (through the Acquia Cloud Web UI!) and run the below steps manually, through drush:
 
-* drush @theclimategroup.ENV_NAME updatedb --no-post-updates -y
-* drush @theclimategroup.ENV_NAME cr
-* drush @theclimategroup.ENV_NAME csex config_ignore -y
-* drush @theclimategroup.ENV_NAME cim sync
-* drush @theclimategroup.ENV_NAME updatedb --post-updates -y
-* drush @theclimategroup.ENV_NAME cr
+* drush @SITE_NAME.ENV_NAME updatedb --no-post-updates -y
+* drush @SITE_NAME.ENV_NAME cr
+* drush @SITE_NAME.ENV_NAME csex config_ignore -y
+* drush @SITE_NAME.ENV_NAME cim sync
+* drush @SITE_NAME.ENV_NAME updatedb --post-updates -y
+* drush @SITE_NAME.ENV_NAME cr
 
 Worth mentioning `cim sync` command doesn't have the `-y` switch on purpose, as often the client change
 some configuration and we don't want to revert their changes. In this case discuss with the Project Leader

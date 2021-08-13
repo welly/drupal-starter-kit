@@ -105,7 +105,7 @@ function moveCssFiles(sourceDirectory, destinationDirectory) {
           movedFiles.push(file.basename + '.css')
         })
       )
-      .pipe(replace('/assets/images/', '/themes/custom/climate_group/assets/images/'))
+      .pipe(replace('/assets/images/', '/themes/custom/custom_theme/assets/images/'))
       .pipe(gulp.dest(destinationDirectory + '/css'))
       .on('end', () => {
         resolve(movedFiles)
@@ -155,7 +155,7 @@ function moveTwigFiles(patternName, sourceDirectory, destinationDirectory) {
     const movedFiles = []
 
     gulp.src(sourceDirectory + '/_*.html.twig')
-      .pipe(header("{{ attach_library('climate_group/" + patternName + "') }}\n"))
+      .pipe(header("{{ attach_library('custom_theme/" + patternName + "') }}\n"))
       .pipe(
         rename(function (file) {
         })

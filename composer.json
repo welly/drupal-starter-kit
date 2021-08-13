@@ -88,9 +88,7 @@
                 "",
                 "<bg=yellow;fg=black>Next steps</>:",
                 "  * Spin the site(s) up with <bg=yellow;fg=black>make up</>",
-                "  * Seed the database with <bg=yellow;fg=black>make seed-db</> or <bg=yellow;fg=black>make seed-db-re100</> or <bg=yellow;fg=black>make seed-db-climate_week</>",
-                "  * Build the Drupal frontend with <bg=yellow;fg=black>make front-end</>",
-                "  * Login to the site with <bg=yellow;fg=black>make uli</> or <bg=yellow;fg=black>make uli-re100</> or <bg=yellow;fg=black>make uli-climate_week</>"
+                "  * Build the Drupal frontend with <bg=yellow;fg=black>make front-end</>"
             ]
         },
         "composer-exit-on-patch-failure": true,

@@ -35,7 +35,7 @@ seed-db: seed-db-dev
 
 seed-db-dev:
 	ddev auth ssh && \
-	ddev exec drush sql-sync -y @theclimategroup.dev @self --create-db --structure-tables-list=cache_bootstrap,cache_config,cache_container,cache_data,cache_default,cache_discovery,cache_dynamic_page_cache,cache_entity,cache_file_mdm,cache_menu,cache_page,cache_render,cache_toolbar,cachetags,sessions,watchdog && \
+	ddev exec drush sql-sync -y @SITENAME.dev @self --create-db --structure-tables-list=cache_bootstrap,cache_config,cache_container,cache_data,cache_default,cache_discovery,cache_dynamic_page_cache,cache_entity,cache_file_mdm,cache_menu,cache_page,cache_render,cache_toolbar,cachetags,sessions,watchdog && \
 	ddev exec drush cim
 	ddev exec drush en stage_file_proxy -y && \
 	ddev exec drush cset stage_file_proxy.settings origin 'http://starterkit.manifesto.co.uk/' -y

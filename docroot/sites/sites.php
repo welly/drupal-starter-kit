@@ -57,19 +57,4 @@
  */
 
 $sites = [
-  'dev.re100.climategroup.manifesto.sh' => 're100',
-  'staging.re100.climategroup.manifesto.sh' => 're100',
-  'prod.re100.climategroup.manifesto.sh' => 're100',
-  'there100.org' => 're100',
-  'www.there100.org' => 're100',
-  '44348.re100.ddev.site' => 're100',
-  're100' => 're100',
-  'stage.there100.org' => 're100',
-  'dev.there100.org' => 're100',
-  'climate-week.ddev.site' => 'climate_week',
-  'dev.climateweek.climategroup.manifesto.sh' => 'climate_week',
-  'staging.climateweek.climategroup.manifesto.sh' => 'climate_week',
-  'prod.climateweek.climategroup.manifesto.sh' => 'climate_week',
-  'climateweeknyc.org' => 'climate_week',
-  'www.climateweeknyc.org' => 'climate_week',
 ];

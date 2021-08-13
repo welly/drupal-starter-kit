@@ -14,13 +14,7 @@ if (gUtil.env.envi === 'prod') {
   isProd = true
 }
 
-var themeFolder = 'climate_group';
-if (gUtil.env.site === 're100') {
-  themeFolder = 're100';
-}
-if (gUtil.env.site === 'climate_week') {
-  themeFolder = 'climate_week';
-}
+var themeFolder = 'custom_theme';
 
 gulp.task('drupal-theme', function (done) {
   const location = '../docroot/themes/custom/' + themeFolder + '/';
@@ -80,7 +74,7 @@ gulp.task('pattern-lab', function (done) {
 })
 
 gulp.task('copy-pattern-lab', function (done) {
-  const destination = '../docroot/themes/custom/climate_group'
+  const destination = '../docroot/themes/custom/custom_theme'
   const location = '../pattern-lab/source/_patterns';
   const promises = []
 
@@ -106,7 +100,7 @@ gulp.task('copy-pattern-lab', function (done) {
       builder.copyPatternType(location, '04-elements', destination + '/patterns/04-elements');
 
       gulp.src(location + '/../assets/css/*.css')
-        .pipe(replace('/assets/images/', '/themes/custom/climate_group/assets/images/'))
+        .pipe(replace('/assets/images/', '/themes/custom/custom_theme/assets/images/'))
         .pipe(replace('../../assets/fonts/', '../assets/fonts/'))
         .pipe(gulp.dest(destination + '/css'))
 

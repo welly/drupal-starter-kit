@@ -4,7 +4,7 @@ function tcgBaseInit() {
   if (typeof NodeList.prototype.forEach !== "function") {
     NodeList.prototype.forEach = Array.prototype.forEach;
   }
-  // console.log('Hello from the Climate Group\'s Base JS');
+  // console.log('Hello from the Drupal Starter Kit\'s Base JS');
 }
 
 /**
