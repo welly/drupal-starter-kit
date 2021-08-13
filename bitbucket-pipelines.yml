@@ -32,8 +32,6 @@ pipelines:
             - npm install
             - npm run gulp copy-pattern-lab prod
             - npm run gulp -- drupal-theme --envi=prod
-            - npm run gulp -- drupal-theme --site=re100 --envi=prod
-            - npm run gulp -- drupal-theme --site=climate_week --envi=prod
           artifacts:
             - 'pattern-lab/**'
             - 'docroot/**'
