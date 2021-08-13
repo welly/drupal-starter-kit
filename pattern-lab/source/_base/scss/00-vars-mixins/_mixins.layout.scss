@@ -1,0 +1,53 @@
+@mixin article-wrapper {
+  background-color: $white;
+  color: $black;
+}
+
+@mixin article-width {
+  width: 90%;
+  max-width: 450px;
+  margin: 0 auto;
+  @media (min-width: $break-desktop-wide) {
+    max-width: 540px;
+  }
+}
+
+@mixin article-padding {
+  padding: 0 0 30px;
+  @media (min-width: $break-desktop) {
+    padding: 0 0 40px;
+  }
+}
+
+@mixin article-layout {
+  @include article-width;
+  @include article-padding();
+}
+
+@mixin section-width {
+  width: 90%;
+  margin: 0 auto;
+  max-width: 540px;
+  @media (min-width: $break-desktop) {
+    width: 95%;
+    max-width: 1110px;
+  }
+}
+
+@mixin section-padding {
+  padding: 40px 0;
+  @media (min-width: $break-desktop) {
+    padding: 60px 0;
+  }
+}
+
+@mixin bring-to-front {
+  position: relative;
+  z-index: 1;
+}
+
+@mixin section-layout {
+  @include section-width;
+  @include section-padding;
+  @include bring-to-front;
+}

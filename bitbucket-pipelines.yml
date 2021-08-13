@@ -1,0 +1,108 @@
+pipelines:
+  default:
+    - step:
+        name: 'Code Sniffer'
+        image: skilldlabs/docker-phpcs-drupal
+        script:
+          - mkdir test-reports
+          - phpcs --config-set ignore_warnings_on_exit 1
+          - phpcs --standard=Drupal,DrupalPractice docroot/modules/custom
+  branches:
+    '{master,release/*,project/*,hotfix/*}':
+      - step:
+          name: 'Build codebase'
+          image: composer:2.0.13
+          caches:
+            - composer
+          script:
+            - composer install --ignore-platform-reqs --no-dev --no-progress --no-ansi --no-interaction
+          artifacts:
+            - 'docroot/**'
+            - 'vendor/**'
+      - step:
+          name: 'Tests'
+          script:
+            - echo "Tests coming soon"
+      - step:
+          name: 'Build dependencies'
+          image: node:8.10.0
+          script:
+            - echo "Building dependencies"
+            - cd tasks
+            - npm install
+            - npm run gulp copy-pattern-lab prod
+            - npm run gulp -- drupal-theme --envi=prod
+            - npm run gulp -- drupal-theme --site=re100 --envi=prod
+            - npm run gulp -- drupal-theme --site=climate_week --envi=prod
+          artifacts:
+            - 'pattern-lab/**'
+            - 'docroot/**'
+            - 'vendor/**'
+      - step:
+          name: 'Preparing commit'
+          script:
+            - mkdir -p ~/.ssh
+            - (umask  077 ; echo $BBPL_ACQUIA_CI_SSH_KEY | base64 --decode > ~/.ssh/id_rsa)
+            # These are the original steps to check-or-create a branch. The version route below tries to do the same but
+            - echo $REMOTE_REPO
+            - echo $BITBUCKET_BRANCH
+            - ls -l ~/.ssh/
+            - if git ls-remote --exit-code --heads $REMOTE_REPO refs/heads/$BITBUCKET_BRANCH; then
+            - echo "Cloning existing branch"
+            - git clone --depth 1 -b $BITBUCKET_BRANCH $REMOTE_REPO acquia;
+            - else
+            - echo "Creating new branch"
+            - git clone --depth 1 -b master $REMOTE_REPO acquia
+            - cd acquia
+            - git checkout -b $BITBUCKET_BRANCH
+            - git push -u origin $BITBUCKET_BRANCH
+            - cd ..;
+            - fi
+            - echo 'Copy build changes'
+            - rm -Rf acquia/docroot
+            - rm -Rf acquia/vendor
+            - rm -Rf acquia/config
+            - rm -Rf acquia/hooks
+            - cp composer.* acquia/
+            - cp -r vendor acquia/
+            - cp -r config acquia/
+            - cp -r hooks acquia/
+            - cp -r docroot acquia/docroot
+          artifacts:
+           - 'acquia/**'
+      - step:
+          name: 'Commit'
+          script:
+            - mkdir -p ~/.ssh
+            - (umask  077 ; echo $BBPL_ACQUIA_CI_SSH_KEY | base64 --decode > ~/.ssh/id_rsa)
+            - echo "LAST COMMIT MESSAGE:"
+            - git log --oneline -1
+            - git log --oneline -1 > commit-message
+            - cd acquia
+            - find docroot -type d -name .git |xargs rm -rf
+            - find vendor -type d -name .git |xargs rm -rf
+            - git config --global user.email "jenkins@manifesto.co.uk"
+            - if git diff --exit-code; then
+            - echo "Nothing to commit";
+            - else
+            - git add --all .
+            - git commit -F ../commit-message
+            - git push
+            - fi
+      - step:
+          name: 'Creating tags'
+          script:
+            - mkdir -p ~/.ssh
+            - (umask  077 ; echo $BBPL_ACQUIA_CI_SSH_KEY | base64 --decode > ~/.ssh/id_rsa)
+            - if git describe --tags --exact-match; then
+            - TAG="$(git describe --tags --exact-match)"
+            - echo "Creating TAG:"
+            - echo $TAG
+            - cd acquia
+            - git config --global user.email "jenkins@manifesto.co.uk"
+            - git status
+            - git tag -a ${TAG} -m "Tag ${TAG}"
+            - git push --tags
+            - else
+            - echo "No tags to push"
+            - fi

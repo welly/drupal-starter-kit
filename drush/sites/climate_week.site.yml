@@ -1,0 +1,46 @@
+# Site climate_week, application 'theclimategroup', environment 'dev'.
+dev:
+  root: /var/www/html/theclimategroup.dev/docroot
+  ac-site: theclimategroup
+  ac-env: dev
+  ac-realm: prod
+  uri: dev.climateweek.climategroup.manifesto.sh
+  dev.livedev:
+    parent: '@climate_week.dev'
+    root: /mnt/gfs/theclimategroup.dev/livedev/docroot
+  host: theclimategroupdev.ssh.prod.acquia-sites.com
+  user: theclimategroup.dev
+  paths:
+    drush-script: drush10
+
+# Site climate_week, application 'theclimategroup', environment 'prod'.
+prod:
+  root: /var/www/html/theclimategroup.prod/docroot
+  ac-site: theclimategroup
+  ac-env: prod
+  ac-realm: prod
+  uri: prod.climateweek.climategroup.manifesto.sh
+  prod.livedev:
+    parent: '@climate_week.prod'
+    root: /mnt/gfs/theclimategroup.prod/livedev/docroot
+  host: theclimategroup.ssh.prod.acquia-sites.com
+  user: theclimategroup.prod
+  paths:
+    drush-script: drush10
+
+# Site climate_week, application 'theclimategroup', environment 'test'.
+test:
+  root: /var/www/html/theclimategroup.test/docroot
+  ac-site: theclimategroup
+  ac-env: test
+  ac-realm: prod
+  uri: staging.climateweek.climategroup.manifesto.sh
+  test.livedev:
+    parent: '@climate_week.test'
+    root: /mnt/gfs/theclimategroup.test/livedev/docroot
+  host: theclimategroupstg.ssh.prod.acquia-sites.com
+  user: theclimategroup.test
+  paths:
+    drush-script: drush10
+
+

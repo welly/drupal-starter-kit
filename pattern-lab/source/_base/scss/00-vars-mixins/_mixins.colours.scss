@@ -1,0 +1,304 @@
+@mixin all-colors {
+  &--red {
+    color: $red;
+    svg {
+      fill: $red;
+    }
+  }
+  &--lime {
+    color: $lime;
+    svg {
+      fill: $lime;
+    }
+  }
+
+  &--aqua {
+    color: $aqua;
+    svg {
+      fill: $aqua;
+    }
+  }
+  &--orange {
+    color: $orange;
+    svg {
+      fill: $orange;
+    }
+  }
+
+  &--hotpink {
+    color: $hotpink;
+    svg {
+      fill: $hotpink;
+    }
+  }
+
+  &--green {
+    color: $green;
+    svg {
+      fill: $green;
+    }
+  }
+
+  &--grey {
+    color: $grey;
+    svg {
+      fill: $grey;
+    }
+  }
+
+  &--white {
+    color: $white;
+    svg {
+      fill: $white;
+    }
+  }
+  &--black {
+    color: $black;
+    svg {
+      fill: $black;
+    }
+  }
+
+  &--blue {
+    color: $blue;
+    svg {
+      fill: $blue;
+    }
+  }
+}
+
+@mixin all-bg-colors {
+  &--bg-red {
+    background-color: $red;
+  }
+  &--bg-lime {
+    background-color: $lime;
+  }
+
+  &--bg-aqua {
+    background-color: $aqua;
+  }
+  &--bg-orange {
+    background-color: $orange;
+  }
+
+  &--bg-hotpink {
+    background-color: $hotpink;
+  }
+
+  &--bg-green {
+    background-color: $green;
+  }
+
+  &--bg-grey {
+    background-color: $grey;
+  }
+
+  &--bg-white {
+    background-color: $white;
+  }
+  &--bg-black {
+    background-color: $black;
+  }
+
+  &--bg-blue {
+    background-color: $blue;
+    color: $white;
+  }
+}
+
+@mixin all-colors-on-hover {
+  &--red {
+    &:hover {
+      color: $red;
+    }
+  }
+  &--lime {
+    &:hover {
+      color: $lime;
+    }
+  }
+
+  &--aqua {
+    &:hover {
+      color: $aqua;
+    }
+  }
+  &--orange {
+    &:hover {
+      color: $orange;
+    }
+  }
+
+  &--hotpink {
+    color: $hotpink;
+  }
+
+  &--green {
+    color: $green;
+  }
+
+  &--grey {
+    &:hover {
+      color: $grey;
+    }
+  }
+
+  &--white {
+    &:hover {
+      color: $white;
+    }
+  }
+  &--black {
+    &:hover {
+      color: $black;
+    }
+  }
+
+  &--blue {
+    &:hover {
+      color: $blue;
+    }
+  }
+}
+
+@mixin all-button-colors {
+  &--btn-red {
+    button {
+      color: $white;
+      background-color: $red;
+      &:focus,
+      &:hover {
+        text-decoration: none;
+        background-color: rgba($red, 0.35);
+      }
+    }
+  }
+  &--btn-lime {
+    button {
+      color: $black;
+      background-color: $lime;
+      &:focus,
+      &:hover {
+        text-decoration: none;
+        background-color: rgba($lime, 0.35);
+      }
+    }
+  }
+
+  &--btn-aqua {
+    button {
+      color: $black;
+      background-color: $aqua;
+      &:focus,
+      &:hover {
+        text-decoration: none;
+        background-color: rgba($aqua, 0.35);
+      }
+    }
+  }
+  &--btn-orange {
+    button {
+      color: $black;
+      background-color: $orange;
+      &:focus,
+      &:hover {
+        text-decoration: none;
+        background-color: rgba($orange, 0.35);
+      }
+    }
+  }
+
+  &--btn-hotpink {
+    button {
+      color: $black;
+      background-color: $hotpink;
+      &:focus,
+      &:hover {
+        text-decoration: none;
+        background-color: rgba($hotpink, 0.35);
+      }
+    }
+  }
+
+  &--btn-green {
+    button {
+      color: $black;
+      background-color: $green;
+      &:focus,
+      &:hover {
+        text-decoration: none;
+        background-color: rgba($green, 0.35);
+      }
+    }
+  }
+
+  &--btn-grey {
+    button {
+      color: $black;
+      background-color: $grey;
+      &:focus,
+      &:hover {
+        text-decoration: none;
+        background-color: rgba($grey, 0.35);
+      }
+    }
+  }
+
+  &--btn-white {
+    button {
+      color: $black;
+      background-color: $white;
+      border: 1px solid $black;
+      &:focus,
+      &:hover {
+        text-decoration: none;
+        background-color: rgba($white, 0.35);
+      }
+    }
+  }
+  &--btn-black {
+    button {
+      color: $white;
+      background-color: $black;
+      border: 1px solid $white;
+      &:focus,
+      &:hover {
+        text-decoration: none;
+        background-color: rgba($black, 0.35);
+        opacity: 0.4;
+      }
+    }
+  }
+
+  &--btn-black-bdr-red {
+    button {
+      color: $red;
+      background-color: $black;
+      border: 1px solid $red;
+      &:focus,
+      &:hover {
+        text-decoration: none;
+        background-color: rgba($black, 0.35);
+        opacity: 0.4;
+      }
+    }
+  }
+
+  &--btn-blue {
+    button {
+      color: $white;
+      background-color: $blue;
+      border: 1px solid $blue;
+      &:focus,
+      &:hover {
+        text-decoration: none;
+
+        background-color: rgba($blue, 0.15);
+        background-color: $white;
+        color: $blue;
+        // opacity: 0.2;
+      }
+    }
+  }
+}

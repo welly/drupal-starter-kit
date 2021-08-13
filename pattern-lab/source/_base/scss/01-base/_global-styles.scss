@@ -1,0 +1,19 @@
+html,
+body {
+  font-family: $font-primary;
+  font-style: normal;
+  font-weight: 400;
+  background-color: $black;
+  color: $white;
+  box-sizing: border-box;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+img,
+svg {
+  width: 100%;
+  height: auto;
+}

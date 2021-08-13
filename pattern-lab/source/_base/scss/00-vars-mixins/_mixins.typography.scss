@@ -1,0 +1,151 @@
+// Sofia Pro Bold
+// font-weight: 700;
+
+// Sofia Pro Semi Bold
+// font-weight: 600;
+
+// Sofia Pro Medium
+// font-weight: 500;
+
+// Sofia Pro Regular
+// font-weight: 400;
+
+@function calculateRem($size) {
+  $remSize: $size / 16;
+  @return $remSize * 1rem;
+}
+
+@mixin font-size($size) {
+  font-size: calculateRem($size);
+}
+
+// font-size
+@mixin heading-h1 {
+  font-family: $font-primary;
+  @include font-size(40);
+  font-weight: 600;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.2;
+  letter-spacing: -0.5px;
+
+  // margin: 0;
+}
+
+@mixin heading-h2 {
+  font-family: $font-primary;
+  @include font-size(24);
+  font-weight: 600;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.19;
+  letter-spacing: -0.4px;
+  margin-bottom: 16px;
+
+  @media (min-width: $break-desktop) {
+    @include font-size(32);
+  }
+}
+
+@mixin heading-h3 {
+  font-family: $font-primary;
+  @include font-size(24);
+  font-weight: 600;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.33;
+  letter-spacing: -0.1px;
+  margin-bottom: 30px;
+}
+
+@mixin heading-h4 {
+  font-family: $font-primary;
+  @include font-size(18);
+  font-weight: 500;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.56;
+  letter-spacing: normal;
+  margin-bottom: 15px;
+}
+
+@mixin heading-h5 {
+  font-family: $font-primary;
+  @include font-size(16);
+  font-weight: 500;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.5;
+  letter-spacing: 0.1px;
+}
+
+@mixin heading-h6 {
+  font-family: $font-primary;
+  @include font-size(14);
+  font-weight: 500;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.43;
+  letter-spacing: normal;
+}
+
+@mixin text-p {
+  font-family: $font-primary;
+  @include font-size(16);
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.5;
+  letter-spacing: 0.1px;
+  margin-bottom: 30px;
+}
+
+@mixin text-small {
+  font-family: $font-primary;
+  @include font-size(14);
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.5;
+  letter-spacing: 0.1px;
+  display: block;
+  margin-bottom: 29px;
+}
+
+@mixin list-item {
+  position: relative;
+  font-family: $font-primary;
+  @include font-size(16);
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.5;
+  letter-spacing: 0.1px;
+  margin-bottom: 8px;
+}
+
+@mixin text-link {
+  text-decoration: none;
+  color: $red;
+  transition: 1s;
+  // border: 1px solid green;
+  position: relative;
+  transition: $transition;
+  &:after {
+    position: absolute;
+    bottom: -3px;
+    left: 0px;
+    right: 0px;
+    content: "";
+    width: 0%;
+    height: 2px;
+    background: $red;
+    transition: $transition;
+  }
+
+  &:hover {
+    &:after {
+      width: 100%;
+    }
+  }
+}

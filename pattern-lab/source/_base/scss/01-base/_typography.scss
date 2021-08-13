@@ -1,0 +1,116 @@
+// Sofia Pro Bold
+// font-weight: 700;
+
+// Sofia Pro Semi Bold
+// font-weight: 600;
+
+// Sofia Pro Medium
+// font-weight: 500;
+
+// Sofia Pro Regular
+// font-weight: 400;
+
+h1,
+.b-pseudo-h1 {
+  @include heading-h1;
+}
+
+h2,
+.b-pseudo-h2 {
+  @include heading-h2;
+}
+
+h3,
+.b-pseudo-h3 {
+  @include heading-h3;
+}
+
+h4,
+.b-pseudo-h4 {
+  @include heading-h4;
+}
+
+h5,
+.b-pseudo-h5 {
+  @include heading-h5;
+}
+
+h6,
+.b-pseudo-h6 {
+  @include heading-h6;
+  margin: 0;
+}
+
+p {
+  @include text-p;
+  &:last-child {
+    margin-bottom: 0px;
+  }
+}
+
+strong {
+  @include text-p;
+  font-weight: 600;
+}
+
+small {
+  @include text-small;
+}
+
+em {
+  @include text-p;
+  font-style: italic;
+}
+
+ol,
+ul {
+  margin: 0 0 calculateRem(30) calculateRem(20);
+  list-style: none;
+}
+
+li {
+  @include list-item;
+
+  &::before {
+    position: absolute;
+    left: calculateRem(-20);
+    color: inherit;
+    background: transparent;
+  }
+}
+
+ol {
+  counter-reset: counter__default;
+
+  li {
+    counter-increment: counter__default;
+
+    &::before {
+      content: counter(counter__default) ".";
+    }
+  }
+}
+
+ul {
+  li {
+    &::before {
+      content: '•';
+    }
+  }
+}
+
+a {
+  @include text-p;
+  text-decoration: none;
+  color: $red;
+
+  &:hover {
+    text-decoration: underline;
+  }
+  // @include text-link;
+}
+
+// ul,
+// ol {
+//   margin-top: 0;
+// }
