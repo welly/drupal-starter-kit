@@ -1,12 +1,12 @@
 {
-    "name": "manifestodigital/drupal-starter-kit",
+    "name": "manifestodigital/{{ project_name }}",
     "description": "Manifesto Drupal Starter Kit",
     "type": "project",
     "license": "GPL-2.0-or-later",
-    "homepage": "https://blahblah.manifesto.co.uk/",
+    "homepage": "https://{{ project_name }}.manifesto.co.uk/",
     "support": {
-        "dev": "https://blahblah.manifesto.co.uk/",
-        "stage": "https://blahblah.manifesto.co.uk/"
+        "dev": "https://{{ project_name }}.manifesto.co.uk/",
+        "stage": "https://{{ project_name }}.manifesto.co.uk/"
     },
     "repositories": [
         {
