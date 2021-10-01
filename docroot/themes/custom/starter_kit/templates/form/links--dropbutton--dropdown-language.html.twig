@@ -1,0 +1,30 @@
+{% set primaryLinks %}
+  {% for language in links %}
+    {% set isActive = language['text_attributes'].hasClass('active-language') %}
+
+    {% if isActive %}
+      <li {{ language.attributes }}>
+        {{ language['link'] }}
+      </li>
+    {% endif %}
+  {% endfor %}
+{% endset %}
+
+{% set secondaryLinks %}
+  {% for language in links %}
+    {% set isActive = language['text_attributes'].hasClass('active-language') %}
+
+    {% if not isActive %}
+      <li {{ language.attributes }}>
+        {{ language['link'] }}
+      </li>
+    {% endif %}
+  {% endfor %}
+{% endset %}
+
+{% include '@elements/dropbutton/_dropbutton.html.twig' with {
+  cssClasses: attributes.class,
+  label: 'Language',
+  primaryLinks: primaryLinks,
+  secondaryLinks: secondaryLinks,
+} %}

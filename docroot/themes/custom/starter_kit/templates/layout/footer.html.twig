@@ -1,0 +1,54 @@
+{% set pages = tcg_footer.menu_one %}
+{% set bottom_menu = tcg_footer.menu_two %}
+
+{% set cta = {
+  url: 'https://support.theclimategroup.org/give/280085/#!/donation/checkout',
+  text: 'Support us',
+  color: tcg_default_color
+} %}
+
+{% set socials = [] %}
+{% if tcg_footer.linkedin_link %}
+  {% set linkedin = {
+    url: tcg_footer.linkedin_link,
+    text: 'LinkedIn',
+    icon: '/assets/images/svg/cg_social_linkedin.svg'
+  } %}
+  {% set socials = socials|merge([linkedin]) %}
+{% endif %}
+{% if tcg_footer.twitter_link %}
+  {% set twitter = {
+    url: tcg_footer.twitter_link,
+    text: 'Twitter',
+    icon: '/assets/images/svg/cg_social_twitter.svg'
+  } %}
+  {% set socials = socials|merge([twitter]) %}
+{% endif %}
+{% if tcg_footer.facebook_link %}
+  {% set facebook = {
+    url: tcg_footer.facebook_link,
+    text: 'Facebook',
+    icon: '/assets/images/svg/cg_social_facebook.svg'
+  } %}
+  {% set socials = socials|merge([facebook]) %}
+{% endif %}
+{% if tcg_footer.instagram_link %}
+  {% set instagram = {
+    url: tcg_footer.instagram_link,
+    text: 'Instagram',
+    icon: '/assets/images/svg/cg_social_instagram.svg'
+  } %}
+  {% set socials = socials|merge([instagram]) %}
+{% endif %}
+
+{% include '@sections/footer/_footer.html.twig' with {
+  footerIcon: '/assets/images/svg/cg_logo-avatar-white.svg',
+  strapline: tcg_footer.strapline,
+  cta: cta,
+  pages: pages,
+  bottom_menu: bottom_menu,
+  socials: socials,
+  copyright: tcg_footer.copyright_message,
+  charityReg: tcg_footer.reg_charity_message,
+  usMsg: tcg_footer.us_message
+} %}

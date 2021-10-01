@@ -1,0 +1,68 @@
+.eu-cookie-compliance-banner {
+  .eu-cookie-compliance-content {
+    font-family: "Sofia Pro", sans-serif;
+    padding: 1em 1.8em;
+    max-width: 80%;
+
+    #popup-text {
+      margin: 0;
+      max-width: 100%;
+
+      h2 {
+        font-size: 18px;
+        font-weight: bold;
+      }
+
+      p {
+        font-size: 14px;
+        font-weight: normal;
+        a {
+          color: #fff;
+          font-size: 14px;
+          line-height: 1.4;
+          text-decoration: underline;
+        }
+      }
+
+      @media (min-width: $break-desktop) {
+        margin: 0 5% 0 0;
+        max-width: 40%;
+      }
+    }
+
+    #popup-buttons {
+      float: none;
+      max-width: 100%;
+
+      button {
+        border: 1px solid #fc341e;
+        font-size: 16px;
+        padding: 1em 1.8em;
+        width: 100%;
+
+        @media (min-width: $break-desktop) {
+          width: auto;
+        }
+
+        &.agree-button {
+          background-color: #fc341e;
+          color: #fff;
+          margin-right: 1em;
+        }
+
+        &.decline-button {
+          background: none;
+          border-radius: 0;
+          box-shadow: none;
+          color: #fc341e;
+          text-shadow: none;
+        }
+      }
+
+      @media (min-width: $break-desktop) {
+        float: right;
+        max-width: 50%;
+      }
+    }
+  }
+}

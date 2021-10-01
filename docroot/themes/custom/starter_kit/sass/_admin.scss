@@ -1,0 +1,81 @@
+ul.toolbar-menu li:before {
+  content: '';
+}
+
+body.path-user main {
+  margin: 0 auto;
+  width: 80%;
+}
+
+.tcg-local-tasks {
+  ul {
+    margin: 0 auto;
+    max-width: 1360px;
+    width: 95%;
+
+    li {
+      display: inline-block;
+      padding: 1em 0 1em 2em;
+
+      &:first-child {
+        padding-left: 0;
+      }
+      &:before {
+        content: '';
+      }
+    }
+  }
+}
+
+ul.entity-moderation-form {
+  background: #000;
+}
+
+aside[role=complementary] {
+  background-color: #000;
+  color: #fff;
+
+  div[data-drupal-messages] {
+    background-color: #fff;
+    color: #000;
+    margin: 0 auto;
+    max-width: 1360px;
+    padding: 0;
+    width: 95%;
+
+    div[role=contentinfo] {
+      padding: 1em;
+    }
+  }
+}
+
+body.path-user {
+  main[role=main] {
+    padding-top: 60px;
+    .tcg-local-tasks ul {
+      margin: 0;
+      width: 100%;
+    }
+    .user-login-form,
+    .user-pass {
+      .form-item,
+      #edit-actions {
+        padding: 10px 0;
+      }
+      .form-text {
+        margin-left: 10px;
+      }
+      .description,
+      p {
+        font-style: italic;
+        padding-top: 10px;
+      }
+      p {
+        margin-bottom: 10px;
+      }
+      .form-submit {
+        padding: 5px 10px 8px 10px;
+      }
+    }
+  }
+}

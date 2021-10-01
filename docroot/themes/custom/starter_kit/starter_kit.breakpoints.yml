@@ -1,0 +1,31 @@
+starter_kit.mobile:
+  label: mobile
+  mediaQuery: '(min-width: 0px)'
+  weight: 0
+  multipliers:
+    - 1x
+    - 2x
+
+starter_kit.desktop:
+  label: desktop
+  mediaQuery: '(min-width: 768px)'
+  weight: 1
+  multipliers:
+    - 1x
+    - 2x
+
+starter_kit.desktop-med:
+  label: desktop-med
+  mediaQuery: '(min-width: 1090px)'
+  weight: 2
+  multipliers:
+    - 1x
+    - 2x
+
+starter_kit.desktop-wide:
+  label: desktop-wide
+  mediaQuery: '(min-width: 1200px)'
+  weight: 3
+  multipliers:
+    - 1x
+    - 2x

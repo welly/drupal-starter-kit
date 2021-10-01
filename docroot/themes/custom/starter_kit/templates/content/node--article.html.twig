@@ -1,0 +1,100 @@
+<article{{ attributes }}>
+
+  {% if not is_front %}
+
+    {% set tagline = '' %}
+    {% if node.hasField('field_tagline') %}
+      {% set tagline = content.field_tagline %}
+    {% endif %}
+
+    {% set subtitle = '' %}
+    {% if node.hasField('field_summary') %}
+      {% set subtitle = content.field_summary %}
+    {% endif %}
+
+    {% set hero_image = '' %}
+    {% if node.hasField('field_header_image') %}
+      {% set hero_image = content.field_header_image %}
+    {% endif %}
+
+    {% set date = node.getCreatedTime|format_date('tcg_full_date')  %}
+    {% if node.hasField('field_event_dates') %}
+      {% set date = content.field_event_dates %}
+    {% endif %}
+
+    {% set date_desc = '' %}
+    {% if node.hasField('field_date_description') %}
+      {% set date_desc = content.field_date_description %}
+    {% endif %}
+
+    {% set author = '' %}
+    {% if node.hasField('field_author') %}
+      {% set author = content.field_author|render %}
+    {% endif %}
+
+    {% set length = '' %}
+    {% if content.field_tcg_time %}
+      {% set length = content.field_tcg_time %}
+    {% endif %}
+
+    {% set cta = [] %}
+    {% if content.field_event_cta_link %}
+      {% set cta = {
+        url: node.field_event_cta_link.0.url,
+        text: node.field_event_cta_link.0.title
+      } %}
+    {% endif %}
+
+    {% set node_url = url('<current>')|render %}
+    {% set social = [
+      {
+        type: 'linkedin',
+        url: 'https://www.linkedin.com/sharing/share-offsite/?url=' ~ node_url
+      },
+      {
+        type: 'twitter',
+        url: 'https://twitter.com/intent/tweet?text=' ~ node.label ~ '&url=' ~ node_url
+      },
+      {
+        type: 'facebook',
+        url: 'https://www.facebook.com/sharer/sharer.php?u=' ~ node_url
+      },
+      {
+        type: 'whatsapp',
+        url: 'https://api.whatsapp.com/send?text=' ~ node_url
+      }
+    ] %}
+
+    {% set lang = node.getTranslationLanguages()|length > 1 ? drupal_entity('block', 'dropdownlanguage', check_access=false)|render %}
+
+    {% include "@sections/article-header/_article-header.html.twig" with {
+      tagline: tagline,
+      title: label,
+      subtitle: subtitle,
+      date: date,
+      date_desc: date_desc,
+      length: length,
+      author: author,
+      image: hero_image,
+      lang: lang,
+      social: social,
+      color: 'red',
+      cta_button: cta
+    }%}
+
+  {% endif %}
+
+  {{ content.field_body }}
+
+  {% if tcg_tags %}
+    {% include "@sections/article-tags/_article-tags.html.twig" with {
+      tags: tcg_tags,
+    } %}
+  {% endif %}
+
+  {% if node.hasField('field_related_content') %}
+    {{ content.field_related_content }}
+  {% endif %}
+
+  {% set catch_cache = content|render %}
+</article>

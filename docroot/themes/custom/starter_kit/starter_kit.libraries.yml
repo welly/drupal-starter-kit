@@ -1,0 +1,14 @@
+global-styles:
+  version: 1.0
+  css:
+    theme:
+      css/starter_kit.base.css: {}
+      css/starter_kit.drupal.css: {}
+
+global-js:
+  version: 1.0
+  js:
+    js/starter_kit.base.min.js: {}
+  dependencies:
+    - core/drupal
+    - core/jquery

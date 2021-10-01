@@ -1,0 +1,79 @@
+// FOR DRUPAL THEME --- docroot/themes/custom/climate_group/templates/layout/page--content-hub.html.twig
+
+.s-search-bar {
+  margin-top: 35px;
+  min-width: 290px;
+
+  @media (min-width: $break-tablet) {
+    margin-top: 50px;
+  }
+  &__input {
+    height: 30px;
+    width: 200px;
+    border: none;
+    margin-right: -4px;
+    background-color: $white;
+    position: relative;
+    color: $black;
+    padding: 0 0 0 20px;
+    &:focus {
+      border: none;
+      outline: none;
+    }
+
+    @media (min-width: $break-tablet) {
+      height: 50px;
+      width: 400px;
+    }
+  }
+
+  &__label {
+    position: relative;
+    color: $lime;
+    line-height: 1;
+    margin: 0;
+
+    &:before {
+      content: "";
+      position: absolute;
+      color: $lime;
+      width: 20px;
+      height: 20px;
+      top: 2px;
+      bottom: 0;
+      left: -30px;
+      z-index: 999;
+      background-image: url("assets/images/svg/cg_search--grey.svg");
+      background-size: fill;
+      background-position: center;
+      background-repeat: no-repeat;
+      @media (min-width: $break-tablet) {
+        width: 30px;
+        height: 30px;
+        top: -5px;
+        bottom: 0;
+        left: -40px;
+      }
+    }
+  }
+
+  &__submit {
+    background-color: $cta-red;
+    width: 90px;
+    height: 30px;
+    border: none;
+    margin: 0;
+    color: $white;
+    font-style: 16px;
+    cursor: pointer;
+    &:focus {
+      border: none;
+      outline: none;
+    }
+
+    @media (min-width: $break-tablet) {
+      width: 130px;
+      height: 50px;
+    }
+  }
+}

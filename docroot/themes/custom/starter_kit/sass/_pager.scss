@@ -1,0 +1,38 @@
+.pager {
+  &__items {
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  &__item {
+    list-style-type: none;
+    margin-right: 10px;
+    &:before {
+      content: '';
+    }
+    a {
+      color: $grey;
+    }
+  }
+  &__item--next,
+  &__item--last,
+  &__item--previous,
+  &__item--first {
+    a {
+      color: $white;
+    }
+  }
+
+  &__item--first {
+    margin-right: 15px;
+  }
+
+  &__item--last {
+    margin-left: 15px;
+  }
+  .is-active {
+    a {
+      color: $white;
+    }
+  }
+}

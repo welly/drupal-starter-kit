@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: sketchtool 61.2 (101010) - https://sketch.com -->
+    <title>30FE7270-289A-4FA4-B019-75FC180BA332</title>
+    <desc>Created with sketchtool.</desc>
+    <g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="-Service-_Library-/-Bg-/-White" transform="translate(-402.000000, -521.000000)">
+            <polygon id="Rectangle" fill-rule="evenodd" points="0 0 1367 0 1367 2514 0 2514"></polygon>
+            <g id="-Service-_Library-/-Headline-/-H1" transform="translate(92.000000, 70.000000)" fill="#000000" font-family=".SFNSDisplay, .SF NS Display" font-size="30" font-weight="normal" letter-spacing="0.2322821">
+                <text id="↳-Headline">
+                    <tspan x="0" y="29">Assets</tspan>
+                </text>
+            </g>
+        </g>
+        <g id="Service" transform="translate(-312.000000, -373.000000)"></g>
+        <g id="_Icons-/-24px--/-Ok" fill="#000000">
+            <polygon id="Icon" points="22.2672065 4.3195489 23.7327935 5.6804511 10.026674 20.4408875 1.29289322 11.7071068 2.70710678 10.2928932 9.97332604 17.5591125"></polygon>
+        </g>
+    </g>
+</svg>

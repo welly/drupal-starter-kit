@@ -1,0 +1,29 @@
+name: Drupal Starter Kit Theme
+type: theme
+description: Starter Kit theme with Stable as base theme.
+package: Climate Group
+version: 9.x-1.0
+core_version_requirement: ^8 || ^9
+base theme: stable9
+hidden: false
+
+libraries:
+  - starter_kit/global-styles
+  - starter_kit/global-js
+
+regions:
+  header: 'Header'
+  sidebar_first: 'Sidebar First'
+  sidebar_second: 'Sidebar Second'
+  content_top: 'Content Top'
+  content: 'Content'
+  content_bottom: 'Content Bottom'
+  footer: 'Footer'
+
+component-libraries:
+  sections:
+    paths:
+      - patterns/02-sections
+  elements:
+    paths:
+      - patterns/04-elements

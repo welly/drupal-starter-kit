@@ -1,0 +1,37 @@
+<?php
+
+/**
+ * @file
+ * Custom functions for the Climate Group theme.
+ */
+
+use Drupal\Core\Serialization\Yaml;
+use Drupal\Core\Url;
+use Drupal\node\NodeInterface;
+use Drupal\views\ViewExecutable;
+use Drupal\views\Views;
+use Drupal\media\Entity\Media;
+use Drupal\taxonomy\Entity\Term;
+
+/**
+ * Implements hook_library_info_build().
+ *
+ * Add dynamic library definitions for pattern components.
+ *
+ * @see core.libraries.yml
+ * @see hook_library_info_alter()
+ */
+function starter_kit_library_info_build() {
+  $libraries = [];
+  $dir = __DIR__ . '/patterns';
+  if (is_dir($dir)) {
+    $pattern_libraries = \Drupal::service('file_system')->scanDirectory($dir, '/.*\.libraries.yml$/', ['key' => 'filename']);
+
+    foreach ($pattern_libraries as $pattern_library) {
+      $library_data = Yaml::decode(file_get_contents($pattern_library->uri));
+      $libraries = array_merge($libraries, $library_data);
+    }
+  }
+
+  return $libraries;
+}

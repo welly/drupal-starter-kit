@@ -1,0 +1,103 @@
+/* Fonts */
+@font-face {
+  font-family: "Sofia Pro";
+  src: url("../assets/fonts/sofiapro/SofiaPro-Light.woff2") format("woff2"),
+  url("../assets/fonts/sofiapro/SofiaPro-Light.woff") format("woff");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Sofia Pro";
+  src: url("../assets/fonts/sofiapro/SofiaPro-SemiBold.woff2") format("woff2"),
+  url("../assets/fonts/sofiapro/SofiaPro-SemiBold.woff") format("woff");
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Sofia Pro";
+  src: url("../assets/fonts/sofiapro/SofiaPro-Regular.woff2") format("woff2"),
+  url("../assets/fonts/sofiapro/SofiaPro-Regular.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+$primary-font: "Sofia Pro", sans-serif;
+$font-size-base: 16;
+$font-size-small: 14;
+$line-height-base: 26;
+
+/* Colours */
+$red: #fc341e;
+$dark-red: #d02613;
+$cta-red: #e71a04;
+$lime: #70cb5d;
+$green: #02c463;
+$aqua: #00d1d9;
+$orange: #ff7f00;
+$black: #000000;
+$white: #ffffff;
+$grey-search: #c1c1c1;
+$grey: #919191;
+$darkgrey-search: #333333;
+$darkgrey: #1f1f1f;
+$hotpink: hotpink;
+$blue: #0814a8;
+
+/* Breakpoints */
+$break-mobile: 321px;
+$break-tablet: 567px;
+$break-desktop: 768px;
+$break-desktop-med: 1090px;
+$break-desktop-wide: 1200px;
+
+$container-content-max-width: 450px;
+
+/* Spacings */
+$margin-bottom: 30px;
+$padding-small: 0.4em;
+$padding-medium: 0.8em;
+$padding-large: 1.6em;
+$padding-xl: 2.4em;
+$padding-xxl: 4em;
+
+$transition: 0.4s;
+
+/* Layout Mixins */
+@mixin bring-to-front {
+  position: relative;
+  z-index: 1;
+}
+
+@mixin all-bg-colors {
+  &--bg-red {
+    background-color: $red;
+  }
+  &--bg-lime {
+    background-color: $lime;
+  }
+  &--bg-aqua {
+    background-color: $aqua;
+  }
+  &--bg-orange {
+    background-color: $orange;
+  }
+  &--bg-hotpink {
+    background-color: $hotpink;
+  }
+  &--bg-green {
+    background-color: $green;
+  }
+  &--bg-grey {
+    background-color: $grey;
+  }
+  &--bg-white {
+    background-color: $white;
+  }
+  &--bg-black {
+    background-color: $black;
+  }
+}
