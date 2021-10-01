@@ -100,7 +100,7 @@ gulp.task('copy-pattern-lab', function (done) {
       builder.copyPatternType(location, '04-elements', destination + '/patterns/04-elements');
 
       gulp.src(location + '/../assets/css/*.css')
-        .pipe(replace('/assets/images/', '/themes/custom/custom_theme/assets/images/'))
+        .pipe(replace('/assets/images/', '/themes/custom/' + themeFolder + '/assets/images/'))
         .pipe(replace('../../assets/fonts/', '../assets/fonts/'))
         .pipe(gulp.dest(destination + '/css'))
 
