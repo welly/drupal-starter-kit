@@ -14,7 +14,7 @@ if (gUtil.env.envi === 'prod') {
   isProd = true
 }
 
-var themeFolder = 'custom_theme';
+var themeFolder = 'starter_kit';
 
 gulp.task('drupal-theme', function (done) {
   const location = '../docroot/themes/custom/' + themeFolder + '/';
