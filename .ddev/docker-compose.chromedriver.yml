@@ -1,0 +1,15 @@
+version: '3.6'
+
+services:
+  chromedriver:
+    container_name: ddev-${DDEV_SITENAME}-chromedriver
+    image: drupalci/chromedriver:production
+    labels:
+      # These labels ensure this service is discoverable by ddev
+      com.ddev.site-name: ${DDEV_SITENAME}
+      com.ddev.approot: ${DDEV_APPROOT}
+  web:
+    links:
+      - chromedriver:${DDEV_HOSTNAME}
+    ports:
+      - "9922:22"
