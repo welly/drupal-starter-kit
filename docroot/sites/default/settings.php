@@ -793,10 +793,3 @@ if (!empty($_ENV['AH_SITE_ENVIRONMENT'])) {
 
   $settings['file_private_path'] = '/mnt/files/' . $_ENV['AH_SITE_GROUP'] . '.' . $_ENV['AH_SITE_ENVIRONMENT'] . '/' . $site_path . '/files-private';
 }
-
-/**
- * Define MySQL 5.6 driver namespace.
- *
- * @see https://www.drupal.org/project/mysql56
- */
-$databases['default']['default']['namespace'] = 'Drupal\\Driver\\Database\\mysql';
