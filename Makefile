@@ -31,7 +31,7 @@ rm:
 drupal-site-install:
 	ddev composer install
 	vendor/bin/phpcs --config-set installed_paths vendor/drupal/coder/coder_sniffer
-	ddev drush si minimal --existing-config
+	ddev drush si minimal
 	ddev drush uli
 
 mysql:
@@ -42,7 +42,7 @@ seed-db: seed-db-dev
 seed-db-dev:
 	ddev auth ssh && \
 	ddev drush sql-sync -y @SITENAME.dev @self --create-db --structure-tables-list=cache_bootstrap,cache_config,cache_container,cache_data,cache_default,cache_discovery,cache_dynamic_page_cache,cache_entity,cache_file_mdm,cache_menu,cache_page,cache_render,cache_toolbar,cachetags,sessions,watchdog && \
-	ddev drush cim
+	ddev drush cim && \
 	ddev drush en stage_file_proxy -y && \
 	ddev drush cset stage_file_proxy.settings origin 'http://starterkit.manifesto.co.uk/' -y
 
@@ -52,8 +52,7 @@ seed-db-dev:
 front-end: pattern-lab-install tasks-install build-drupal-patterns drupal-theme
 
 pattern-lab-install:
-	cd pattern-lab && \
-	npm install
+	cd pattern-lab && npm install
 
 pattern-lab-serve:
 	cd pattern-lab && \
@@ -85,17 +84,17 @@ drupal-theme-watch:
 run-tests-custom:
 	mkdir -p docroot/sites/simpletest/browser_output
 	chmod 777 docroot/sites/simpletest/browser_output
-	ddev exec 'bash -c "./vendor/bin/phpunit -c docroot/core docroot/modules/custom"'
+	ddev exec 'bash -c "./vendor/bin/phpunit -c /var/www/html/phpunit.xml docroot/modules/custom"'
 
 run-tests-core:
 	mkdir -p docroot/sites/simpletest/browser_output
 	chmod 777 docroot/sites/simpletest/browser_output
-	ddev exec 'bash -c "./vendor/bin/phpunit -c docroot/core docroot/core/modules/action"'
+	ddev exec 'bash -c "./vendor/bin/phpunit -c /var/www/html/phpunit.xml docroot/core/modules/action"'
 
 run-tests-core-javascript:
 	mkdir -p docroot/sites/simpletest/browser_output
 	chmod 777 docroot/sites/simpletest/browser_output
-	ddev exec -d /var/www/html/docroot 'bash -c "../vendor/bin/phpunit -c core core/modules/big_pipe/tests/src/FunctionalJavascript"'
+	ddev exec -d /var/www/html/docroot 'bash -c "../vendor/bin/phpunit -c /var/www/html/phpunit.xml core/modules/big_pipe/tests/src/FunctionalJavascript"'
 
 run-tests-nightwatch:
 	ddev exec -d /var/www/html/docroot/core yarn test:nightwatch --tag core
