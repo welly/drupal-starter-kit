@@ -3,8 +3,8 @@ type: drupal9
 docroot: docroot
 php_version: "7.4"
 webserver_type: nginx-fpm
-router_http_port: "8048"
-router_https_port: "44348"
+router_http_port: "80"
+router_https_port: "443"
 xdebug_enabled: false
 additional_fqdns: []
 mariadb_version: ""
@@ -156,7 +156,7 @@ web_environment: []
 # In this case the user must provide all such settings.
 
 # You can inject environment variables into the web container with:
-# web_environment: 
+# web_environment:
 # - SOMEENV=somevalue
 # - SOMEOTHERENV=someothervalue
 
