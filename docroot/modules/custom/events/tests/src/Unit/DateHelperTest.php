@@ -87,4 +87,12 @@ class DateHelperTest extends UnitTestCase {
     $this->assertStringStartsWith('2 year(s), 3 month(s), 4 day(s), 5 hour(s), 6 minute(s), 1', Helper::eventCountDown($event->reveal()));
   }
 
+  /**
+   * Testing nextDay and prevDay class methods.
+   *
+   * @TODO
+   */
+  public function testPreviousNextDays() {
+  }
+
 }

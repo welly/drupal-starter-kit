@@ -2,6 +2,7 @@
 
 namespace Drupal\events\Dates;
 
+use Drupal\Core\TypedData\Type\DateTimeInterface;
 use Drupal\node\NodeInterface;
 
 /**
@@ -46,6 +47,40 @@ class Helper {
       return static::countDown($event->field_date->date->getPhpDateTime());
     }
     throw new \InvalidArgumentException('Provided node does not have a field_date datetime field.');
+  }
+
+  /**
+   * Helper function to return next X days from supplied datetime object.
+   *
+   * @param \DateTime $datetime
+   *   Event datetime object.
+   *
+   * @param $count_days
+   *   Number of days in the future from supplied datetime object.
+   *
+   * @return string
+   *   Formatted date string.
+   */
+  public static function nextDay(\DateTimeInterface $date, $count_days) {
+    $date->modify('+' . $count_days . ' day');
+    return date_format($date, 'Y-m-d H:i:s');
+  }
+
+  /**
+   * Helper function to return previous X days from supplied datetime object.
+   *
+   * @param \DateTime $date
+   *   Event datetime object.
+   *
+   * @param $count_days
+   *   Number of days in the past from supplied datetime object.
+   *
+   * @return string
+   *   Formatted date string.
+   */
+  public static function prevDay(\DateTimeInterface $date, $count_days) {
+    $date->modify('-' . $count_days . ' day');
+    return date_format($date, 'Y-m-d H:i:s');
   }
 
 }
