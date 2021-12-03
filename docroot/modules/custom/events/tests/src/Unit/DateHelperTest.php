@@ -88,11 +88,29 @@ class DateHelperTest extends UnitTestCase {
   }
 
   /**
-   * Testing nextDay and prevDay class methods.
+   * Testing nextDay method.
    *
    * @TODO
    */
-  public function testPreviousNextDays() {
+  public function testNextDay() {
+    $date = new \DateTime();
+    $this->assertEquals('2021-12-05', Helper::nextDay($date, 1));
+  }
+
+  /**
+   * Testing prevDay method.
+   *
+   * @TODO
+   */
+  public function testPreviousDay() {
+  }
+
+  /**
+   * Testing refactored previous/next method.
+   *
+   * @TODO
+   */
+  public function testRefactoredPreviousNextDays() {
   }
 
 }

@@ -62,8 +62,8 @@ class Helper {
    *   Formatted date string.
    */
   public static function nextDay(\DateTimeInterface $date, $count_days) {
-    $date->modify('+' . $count_days . ' day');
-    return date_format($date, 'Y-m-d H:i:s');
+    $date->modify('+' . $count_days . ' days');
+    return date_format($date, 'Y-m-d');
   }
 
   /**
@@ -79,8 +79,8 @@ class Helper {
    *   Formatted date string.
    */
   public static function prevDay(\DateTimeInterface $date, $count_days) {
-    $date->modify('-' . $count_days . ' day');
-    return date_format($date, 'Y-m-d H:i:s');
+    $date->modify('-' . $count_days . ' days');
+    return date_format($date, 'Y-m-d');
   }
 
 }
