@@ -17,9 +17,17 @@ class EventContentTest extends KernelTestBase {
    * {@inheritdoc}
    */
   protected static $modules = [
-    'user',
-    'node',
     'events',
+    'field',
+    'filter',
+    'datetime',
+    'menu_ui',
+    'node',
+    'system',
+    'taxonomy',
+    'text',
+    'user',
+    'views',
   ];
 
   /**
@@ -27,13 +35,16 @@ class EventContentTest extends KernelTestBase {
    */
   protected function setUp(): void {
     parent::setUp();
-    $this->installEntitySchema('user');
+    $this->installConfig(['events', 'filter', 'node', 'system', 'taxonomy']);
     $this->installEntitySchema('node');
+    $this->installEntitySchema('taxonomy_term');
+    $this->installEntitySchema('user');
 
     $node = Node::create(['type' => 'event']);
     $node->setTitle('Event 1');
     $node->field_date = date('Y-m-d');
     $node->save();
+    $a = 1;
   }
 
   /**

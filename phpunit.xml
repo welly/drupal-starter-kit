@@ -15,13 +15,16 @@
   <php>
     <ini name="error_reporting" value="32767"/>
     <ini name="memory_limit" value="-1"/>
-    <env name="SIMPLETEST_BASE_URL" value="http://web"/>
+    <env name="SIMPLETEST_BASE_URL" value="http://drupal-starter-kit.ddev.site"/>
     <env name="SIMPLETEST_DB" value="mysql://db:db@db/db"/>
     <env name="BROWSERTEST_OUTPUT_DIRECTORY" value="/var/www/html/docroot/sites/simpletest/browser_output/"/>
-    <env name="BROWSERTEST_OUTPUT_BASE_URL" value="https://drupal-starter-kit.ddev.site"/>
+    <env name="BROWSERTEST_OUTPUT_BASE_URL" value="http://drupal-starter-kit.ddev.site"/>
     <env name="MINK_DRIVER_CLASS" value=''/>
     <env name="MINK_DRIVER_ARGS" value=''/>
     <env name="MINK_DRIVER_ARGS_WEBDRIVER" value='["chrome", {"browserName":"chrome","chromeOptions":{"args":["--disable-gpu","--headless", "--no-sandbox"]}}, "http://chromedriver:9515"]'/>
+    <env name="DTT_BASE_URL" value="http://drupal-starter-kit.ddev.site"/>
+    <env name="DTT_API_URL" value="http://chrome:9222"/>
+    <env name="DTT_MINK_DRIVER_ARGS" value='["chrome", {"browserName":"chrome","chromeOptions":{"args":["--disable-gpu","--headless", "--no-sandbox"]}}, "http://chromedriver:9515"]'/>
   </php>
   <testsuites>
     <testsuite name="unit">

@@ -1,8 +1,8 @@
 version: '3.6'
 services:
-  chromedriver:
-    container_name: ddev-${DDEV_SITENAME}-chromedriver
-    image: drupalci/chromedriver:production
+  chrome:
+    container_name: ddev-${DDEV_SITENAME}-chrome
+    image: previousnext/chrome-headless:65
     labels:
       com.ddev.site-name: ${DDEV_SITENAME}
       com.ddev.approot: $DDEV_APPROOT
@@ -10,4 +10,4 @@ services:
       - ddev-router:${DDEV_SITENAME}.${DDEV_TLD}
   web:
     links:
-      - chromedriver:$DDEV_HOSTNAME
+      - chrome:$DDEV_HOSTNAME
