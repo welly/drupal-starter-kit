@@ -1,0 +1,7 @@
+ktb_module.settings:
+  type: config_object
+  label: 'KTB Module Settings'
+  mapping:
+    my_text_field:
+      type: string
+      label: 'My text field'

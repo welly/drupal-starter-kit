@@ -44,7 +44,6 @@ class EventContentTest extends KernelTestBase {
     $node->setTitle('Event 1');
     $node->field_date = date('Y-m-d');
     $node->save();
-    $a = 1;
   }
 
   /**
